@@ -7,15 +7,21 @@
 </head>
 <body>
   <h1>New game</h1>
-  <% @letters.each do |letter| %>
-    <div class="d-inline bg-primary letter"><%= letter %></div>
-  <% end %>
+  <div class="letter">
+    <ul>
+      <% @letters.each do |letter| %>
+        <li><%= letter %></li>
+      <% end %>
+    </ul>
 
-  <form action="/score" method="post">
+  </div>
+
+  <form action="/score" method="post" class="game_input">
     <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
     <input type="text" name="word">
     <input type="hidden" name="letters" value="<%= @letters.join(',') %>">
     <input type="submit" value="Play">
   </form>
+
 </body>
 </html>

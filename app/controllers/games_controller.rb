@@ -11,7 +11,6 @@ class GamesController < ApplicationController
   end
 
   def score
-
     @word = params[:word]
     @letters = params[:letters].split(',')
 
